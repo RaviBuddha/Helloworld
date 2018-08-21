@@ -1,0 +1,10 @@
+---
+- hosts: all
+  vars:
+   - path: /tmp
+
+  tasks:
+  - name: print the contents of /tmp
+    command: ls '{{ path }}'
+    register: output
+  - debug: msg="{{ output.stdout }}"
